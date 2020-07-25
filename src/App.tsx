@@ -1,16 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+
+import { Router, Switch, Route, Redirect, 
+  useRouteMatch, Link, BrowserRouter } from "react-router-dom";
+
+import DashIndex from "./components/Quiz/DashIndex"
+import AssessmentIndex from "./components/Quiz/AssessmentIndex"
+import FinishIndex from "./components/Quiz/FinishIndex"
+import AllResults from "./components/Quiz/AllResultsIndex"
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
+    <div className="Quiz">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path = "/" component={DashIndex} />
+          <Route exact path = "/test" component={AssessmentIndex} />
+          <Route exact path = "/test" component={AssessmentIndex} />
+          <Route exact path = "/finish" component={FinishIndex} />
+          <Route exact path = "/allresults" component={AllResults} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
