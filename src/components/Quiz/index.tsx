@@ -1,8 +1,8 @@
-import React from 'react';
-import DashIndex from './DashIndex'
+import React from "react";
+import DashIndex from "./DashIndex";
 
 const QuizIndex: React.FC = () => {
-    return <DashIndex />
-}
+  return <DashIndex />;
+};
 
-export default QuizIndex
+export default QuizIndex;
