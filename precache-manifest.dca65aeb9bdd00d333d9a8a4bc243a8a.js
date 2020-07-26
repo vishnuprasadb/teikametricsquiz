@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "408d84102784e1faf5686b21d5b415a9",
+    "revision": "8d08e928bf09a353ad4c62edd671f160",
     "url": "/teikametricsquiz/index.html"
   },
   {
-    "revision": "b62a1315f28fbbb03901",
+    "revision": "24557c8c026b9938eafc",
     "url": "/teikametricsquiz/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "c90707ba6f59d7096842",
-    "url": "/teikametricsquiz/static/js/2.a0f24a1c.chunk.js"
+    "revision": "b8006df558ca5eec57ef",
+    "url": "/teikametricsquiz/static/js/2.b510f8b7.chunk.js"
   },
   {
     "revision": "ba3b4500f00880cf9656c39900077397",
-    "url": "/teikametricsquiz/static/js/2.a0f24a1c.chunk.js.LICENSE"
+    "url": "/teikametricsquiz/static/js/2.b510f8b7.chunk.js.LICENSE"
   },
   {
-    "revision": "b62a1315f28fbbb03901",
-    "url": "/teikametricsquiz/static/js/main.b2b532ab.chunk.js"
+    "revision": "24557c8c026b9938eafc",
+    "url": "/teikametricsquiz/static/js/main.c40b1873.chunk.js"
   },
   {
     "revision": "0ee9a200a25330687ec9",
