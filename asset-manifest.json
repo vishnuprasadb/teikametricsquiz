@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/telekometricsQuiz/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/telekometricsQuiz/static/js/main.b2b532ab.chunk.js",
-    "main.js.map": "/telekometricsQuiz/static/js/main.b2b532ab.chunk.js.map",
-    "runtime-main.js": "/telekometricsQuiz/static/js/runtime-main.83b433e7.js",
-    "runtime-main.js.map": "/telekometricsQuiz/static/js/runtime-main.83b433e7.js.map",
-    "static/js/2.a0f24a1c.chunk.js": "/telekometricsQuiz/static/js/2.a0f24a1c.chunk.js",
-    "static/js/2.a0f24a1c.chunk.js.map": "/telekometricsQuiz/static/js/2.a0f24a1c.chunk.js.map",
-    "index.html": "/telekometricsQuiz/index.html",
-    "precache-manifest.0f2dbbaefc20190a03a255af2893fd66.js": "/telekometricsQuiz/precache-manifest.0f2dbbaefc20190a03a255af2893fd66.js",
-    "service-worker.js": "/telekometricsQuiz/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/telekometricsQuiz/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.a0f24a1c.chunk.js.LICENSE": "/telekometricsQuiz/static/js/2.a0f24a1c.chunk.js.LICENSE"
+    "main.css": "/teikametricsquiz/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/teikametricsquiz/static/js/main.b2b532ab.chunk.js",
+    "main.js.map": "/teikametricsquiz/static/js/main.b2b532ab.chunk.js.map",
+    "runtime-main.js": "/teikametricsquiz/static/js/runtime-main.80719216.js",
+    "runtime-main.js.map": "/teikametricsquiz/static/js/runtime-main.80719216.js.map",
+    "static/js/2.a0f24a1c.chunk.js": "/teikametricsquiz/static/js/2.a0f24a1c.chunk.js",
+    "static/js/2.a0f24a1c.chunk.js.map": "/teikametricsquiz/static/js/2.a0f24a1c.chunk.js.map",
+    "index.html": "/teikametricsquiz/index.html",
+    "precache-manifest.4df1b4e0ac85eaedad3be695040d113f.js": "/teikametricsquiz/precache-manifest.4df1b4e0ac85eaedad3be695040d113f.js",
+    "service-worker.js": "/teikametricsquiz/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/teikametricsquiz/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.a0f24a1c.chunk.js.LICENSE": "/teikametricsquiz/static/js/2.a0f24a1c.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.83b433e7.js",
+    "static/js/runtime-main.80719216.js",
     "static/js/2.a0f24a1c.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
     "static/js/main.b2b532ab.chunk.js"
