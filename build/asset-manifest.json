@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.aa42dac8.chunk.js",
-    "main.js.map": "/static/js/main.aa42dac8.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5ca581f5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5ca581f5.js.map",
-    "static/js/2.b510f8b7.chunk.js": "/static/js/2.b510f8b7.chunk.js",
-    "static/js/2.b510f8b7.chunk.js.map": "/static/js/2.b510f8b7.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.2dec5a661de52b4ea6a6b03a679437c1.js": "/precache-manifest.2dec5a661de52b4ea6a6b03a679437c1.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.b510f8b7.chunk.js.LICENSE": "/static/js/2.b510f8b7.chunk.js.LICENSE"
+    "main.css": "/teikametricsquiz/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/teikametricsquiz/static/js/main.aa42dac8.chunk.js",
+    "main.js.map": "/teikametricsquiz/static/js/main.aa42dac8.chunk.js.map",
+    "runtime-main.js": "/teikametricsquiz/static/js/runtime-main.80719216.js",
+    "runtime-main.js.map": "/teikametricsquiz/static/js/runtime-main.80719216.js.map",
+    "static/js/2.b510f8b7.chunk.js": "/teikametricsquiz/static/js/2.b510f8b7.chunk.js",
+    "static/js/2.b510f8b7.chunk.js.map": "/teikametricsquiz/static/js/2.b510f8b7.chunk.js.map",
+    "index.html": "/teikametricsquiz/index.html",
+    "precache-manifest.df1250328d658b37c203dcbd8ee3ebd0.js": "/teikametricsquiz/precache-manifest.df1250328d658b37c203dcbd8ee3ebd0.js",
+    "service-worker.js": "/teikametricsquiz/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/teikametricsquiz/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.b510f8b7.chunk.js.LICENSE": "/teikametricsquiz/static/js/2.b510f8b7.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.5ca581f5.js",
+    "static/js/runtime-main.80719216.js",
     "static/js/2.b510f8b7.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
     "static/js/main.aa42dac8.chunk.js"
