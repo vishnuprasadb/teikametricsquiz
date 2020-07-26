@@ -54,7 +54,7 @@ const AssessmentIndex: React.FC = () => {
     // Load API when the componentDidMount.
     useEffect (()=>{
         localStorage.setItem("currentResults", JSON.stringify({}))
-        const urlParams = new URLSearchParams(window.location.search)
+        const urlParams = new URLSearchParams(window.location.hash.replace("#/test", ""))
 
         const numQuestions = urlParams.get("numQuestions")
         const category = urlParams.get("category")

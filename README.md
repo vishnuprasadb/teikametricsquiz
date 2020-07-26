@@ -6,6 +6,8 @@ See `requirements.md` for requirements of the App to create.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To See this quiz in action [Click Here](https://vishnuprasadb.github.io/teikametricsquiz/)
+
 ## Available Scripts
 
 In this directory, you can run:

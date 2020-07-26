@@ -3,7 +3,7 @@ import React from 'react';
 import { ThemeProvider } from "@material-ui/core/styles";
 
 import theme from "./components/ui/Theme";
-import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 
 import DashIndex from "./components/Quiz/DashIndex"
 import AssessmentIndex from "./components/Quiz/AssessmentIndex"
@@ -14,14 +14,14 @@ const App: React.FC = () => {
   return (
     <div className="Quiz">
       <ThemeProvider theme={theme} >
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
             <Route path = {`/test`} component={AssessmentIndex} />
             <Route path = {`/finish`} component={FinishIndex} />
             <Route path = {`/allresults`} component={AllResults} />
             <Route path = {`/`} component={DashIndex} />
           </Switch>
-        </BrowserRouter>       
+        </HashRouter>       
       </ThemeProvider>
     </div>
   );
