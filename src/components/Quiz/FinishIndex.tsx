@@ -68,7 +68,7 @@ const FinishIndex: React.FC = () => {
                     </Grid>
                     <Grid container xs={12} item justify="center">
                         <Button color="primary"
-                            onClick={()=>history.push('/allresults/')}
+                            onClick={()=>history.push('/allresults')}
                         >View all results
                         </Button>
                     </Grid>

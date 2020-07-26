@@ -10,19 +10,16 @@ import AssessmentIndex from "./components/Quiz/AssessmentIndex"
 import FinishIndex from "./components/Quiz/FinishIndex"
 import AllResults from "./components/Quiz/AllResultsIndex"
 
-const projectName:string = "/teikametricsquiz"
-
 const App: React.FC = () => {
   return (
     <div className="Quiz">
       <ThemeProvider theme={theme} >
         <BrowserRouter>
           <Switch>
-            <Route exact path = "/" component={DashIndex} />
-            <Route exact path = "/test" component={AssessmentIndex} />
-            <Route exact path = "/test" component={AssessmentIndex} />
-            <Route exact path = "/finish" component={FinishIndex} />
-            <Route exact path = "/allresults" component={AllResults} />
+            <Route path = {`/test`} component={AssessmentIndex} />
+            <Route path = {`/finish`} component={FinishIndex} />
+            <Route path = {`/allresults`} component={AllResults} />
+            <Route path = {`/`} component={DashIndex} />
           </Switch>
         </BrowserRouter>       
       </ThemeProvider>
