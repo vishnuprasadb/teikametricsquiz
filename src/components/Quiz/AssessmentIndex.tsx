@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
+import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Alert from '@material-ui/lab/Alert';
+import Paper from '@material-ui/core/Paper';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import QuizService from '../../services/QuizService';
 import Question from './Assessment/Question'
+import Progress from './Assessment/Progress'
 
 interface QuestionsObj  {
     category: string,
@@ -15,7 +21,16 @@ interface QuestionsObj  {
     incorrect_answers: Array<string>
 }
 
+const useStyle = makeStyles((theme) => ({
+    paper: {
+        maxWidth: 1000,
+        margin: `${theme.spacing(3)}px auto`,
+        padding: theme.spacing(5),
+    },
+}));
+
 const AssessmentIndex: React.FC = () => {
+    const classes = useStyle();
     const history = useHistory();
 
     // States required to handle the diplay of questions
@@ -32,6 +47,9 @@ const AssessmentIndex: React.FC = () => {
     
     //State to keep track of the interview timer
     const [timer, changeTimer] = useState(0)
+
+    //State to warn any questions being skipped
+    const [skipAlert, setSkipAlert] = useState(false)
 
     // Load API when the componentDidMount.
     useEffect (()=>{
@@ -81,39 +99,80 @@ const AssessmentIndex: React.FC = () => {
     }, [finished])
 
     const handleNextClick = () => {
-        setCurrentQuestionIndex(prevIndex=>prevIndex+1)
-        if (currentCorrectAnswer === ansGiven){
-            setCorrentAnswers(prevCorrectAnswers => prevCorrectAnswers+1)
-        }
-        setAnsGiven("")
-        if (currentQuestionIndex === totalQuestions){
-            setFinished(true)
+        if (!ansGiven){
+            setSkipAlert(true)
+        }else{
+            setCurrentQuestionIndex(prevIndex=>prevIndex+1)
+            if (currentCorrectAnswer === ansGiven){
+                setCorrentAnswers(prevCorrectAnswers => prevCorrectAnswers+1)
+            }
+            setAnsGiven("")
+            if (currentQuestionIndex === totalQuestions){
+                setFinished(true)
+            }
         }
     }
 
     const handleSelection = (event:any) => {
         setAnsGiven(event.target.value)
-        console.log(event.target.value)
+        setSkipAlert(false)
     }
     return (
         <div>
             {
                 loading ? 
-                "Loading Questions":
                 (
                     <React.Fragment>
-                        <Question
-                            details={questions[currentQuestionIndex]}
-                            handleSelection={handleSelection}
-                        />
-                        <Button color="primary"
-                            onClick={handleNextClick}
-                        >{
-                            currentQuestionIndex === totalQuestions ? "Finish" : "Next Question"
-                            }
-                        </Button>
+                        <Paper className={classes.paper}>
+                            <Grid spacing={2} container xs={12} item justify="center">
+                                <Grid container xs={12} item justify="center">
+                                    <CircularProgress />
+                                </Grid>
+                                <Grid container xs={12} item justify="center">
+                                    {"Loading Questions"}
+                                </Grid>
+                            </Grid>
+                        </Paper>
+                    </React.Fragment>
+                ):
+                (
+                    <React.Fragment>
+                        <Paper className={classes.paper}>
+                        <Grid 
+                            container
+                            direction="row"
+                            spacing={0}
+                            justify="center"
+                            xs={12}
+                        >
+                            <Progress value={(((currentQuestionIndex+1)/(totalQuestions+1))*100)}/>
+                            <Grid xs={12} item>
+                                <Question
+                                    details={questions[currentQuestionIndex]}
+                                    handleSelection={handleSelection}
+                                />
+                            </Grid>
+                            <Grid container justify="center" xs={12} item>
+                                <Button color="primary"
+                                    onClick={handleNextClick}
+                                >{
+                                    currentQuestionIndex === totalQuestions ?
+                                    "Finish" :
+                                    "Next Question"
+                                 }
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        </Paper>
                     </React.Fragment>
                 )
+            }
+            {
+                skipAlert?
+                <Alert variant="outlined" severity="error">
+                    Please answer this question to move forward!
+                </Alert>:
+                ""
             }
         </div>
     )

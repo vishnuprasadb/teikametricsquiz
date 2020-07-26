@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Button from "@material-ui/core/Button";
 import Table from '@material-ui/core/Table';
@@ -9,6 +10,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import classes from '*.module.css';
+
+import convertToReadableTime from '../Utils/convertToReadableTime'
 
 interface AllResultsObj  {
     totalQuestions: number,
@@ -18,7 +22,17 @@ interface AllResultsObj  {
     percentageSuccess: number | null,
 }
 
+const useStyles = makeStyles({
+    root: {
+      width: '100%',
+    },
+    container: {
+      maxHeight: 500,
+    },
+});
+
 const AllResults = () => {
+    const classes = useStyles();
     const history = useHistory();
     const [allResults, setAllResults] = useState<Array<AllResultsObj>>([])
 
@@ -32,32 +46,30 @@ const AllResults = () => {
                 onClick={()=>history.push('/')}
             >Take the test again
             </Button>
-            <TableContainer component={Paper}>
-            <Table  aria-label="simple table">
+            <Paper className={classes.root} >
+            <TableContainer className={classes.container} >
+            <Table aria-label="simple table">
                 <TableHead>
                 <TableRow>
-                    <TableCell>Questions Asked</TableCell>
-                    <TableCell align="right">Correct Answers</TableCell>
-                    <TableCell align="right">Wrong Answers</TableCell>
-                    <TableCell align="right">% Success</TableCell>
-                    <TableCell align="right">Time Taken</TableCell>
+                    <TableCell>Correct Answers</TableCell>
+                    <TableCell>Wrong Answers</TableCell>
+                    <TableCell>Performance</TableCell>
+                    <TableCell>Time Taken</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
                 {allResults.map((row) => (
                     <TableRow key={row.timer}>
-                    <TableCell component="th" scope="row">
-                        {row.totalQuestions}
-                    </TableCell>
-                    <TableCell align="right">{row.correctAnswers}</TableCell>
-                    <TableCell align="right">{row.wrongAnswers}</TableCell>
-                    <TableCell align="right">{row.percentageSuccess}</TableCell>
-                    <TableCell align="right">{row.timer}</TableCell>
+                        <TableCell>{row.correctAnswers}</TableCell>
+                        <TableCell>{row.wrongAnswers}</TableCell>
+                        <TableCell>{row.percentageSuccess}</TableCell>
+                        <TableCell>{convertToReadableTime(row.timer)}</TableCell>
                     </TableRow>
                 ))}
                 </TableBody>
             </Table>
         </TableContainer>
+        </Paper>
         </React.Fragment>
     )
 }
