@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 
-
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
-import Instrcutions from "./Instrcutions";
-import StartForm from "./StartForm";
 
 const useStyle = makeStyles(theme => ({
+  paper: {
+    maxWidth: 1000,
+    margin: `${theme.spacing(3)}px auto`,
+    padding: theme.spacing(5)
+  },
+
   header: {
     backgroundColor: "lightblue"
   },
 
   headingText: {
     verticalAlign: "middle"
+    // marginLeft: "15px",
   },
 
   instructions: {
@@ -23,11 +36,21 @@ const useStyle = makeStyles(theme => ({
 
   instructionsText: {
     verticalAlign: "middle"
+    // marginLeft: "15px",
+  },
+
+  divider: {
+    backgroundColor: "grey",
+    width: "100%"
   },
 
   gridContainer: {
-    margin: "0 auto",
+    margin: "0 auto"
   },
+
+  select: {
+    width: "10rem"
+  }
 }));
 
 const Dash = () => {
@@ -38,27 +61,17 @@ const Dash = () => {
   const [difficultyLevel, setDifficultyLevel] = useState("");
   const [category, setCatergory] = useState("");
 
-  const handleQuestionsChange = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) =>{
-    setNumQuestions(parseInt(event.target.value as string))
-  }
-
-  const handleDifficultLevelChange = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setDifficultyLevel(event.target.value as string);
   };
 
-  const handleCategoryChange = (
+  const handleChangeCategory = (
     event: React.ChangeEvent<{ value: unknown }>
   ) => {
     setCatergory(event.target.value as string);
   };
 
-  const startTest = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  const startTest = () => {
     let queryString: string = "?numQuestions=" + numQuestions.toString();
     if (category) {
       queryString += "&category=" + category;
@@ -83,25 +96,16 @@ const Dash = () => {
             container
             justify="center"
             xs={12}
-            sm={6}
             item
-            className={classes.instructions}
+            className={classes.header}
           >
-            <Grid container xs={12} item>
-              &nbsp;
-            </Grid>
-            <Instrcutions />
-          </Grid>
-          
-          <Grid container spacing={2} xs={12} sm={6} item>
-            <StartForm
-              {...{ 
-                numQuestions, handleQuestionsChange,
-                difficultyLevel, handleDifficultLevelChange,
-                category, handleCategoryChange,
-                startTest,
-              }} 
-            />
+            <Typography
+              variant="h3"
+              display="inline"
+              className={classes.headingText}
+            >
+              Teikametrics Quiz
+            </Typography>
           </Grid>
         </Grid>
     </div>

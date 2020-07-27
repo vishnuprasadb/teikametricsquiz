@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Radio from "@material-ui/core/Radio";
@@ -9,18 +9,13 @@ import Grid from "@material-ui/core/Grid";
 import htmlDecode from "../../Utils/htmlDecode";
 
 const useStyle = makeStyles(theme => ({
-  paper: {
-    maxWidth: 1000,
-    margin: `${theme.spacing(3)}px auto`,
-    padding: theme.spacing(5)
-  },
 
   question: {
     backgroundColor: "lightgreen",
     color: "black",
     verticalAlign: "middle",
-    // marginTop: "1rem",
-    height: "4rem"
+    padding: "1rem",
+    fontWeight: "bold",
   },
 
   option: {
@@ -28,10 +23,20 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
+interface QuestionsObj {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: Array<string>;
+}
+
 type QuestionProps = {
-  details: any;
+  details: QuestionsObj;
   handleSelection: any;
 };
+
 const Question = ({ details, handleSelection }: QuestionProps) => {
   const classes = useStyle();
 
@@ -67,7 +72,7 @@ const Question = ({ details, handleSelection }: QuestionProps) => {
                 control={<Radio />}
                 label={htmlDecode(details.correct_answer)}
               />
-              {details.incorrect_answers.map((eachAnswer: any) => {
+              {details.incorrect_answers.map((eachAnswer: string) => {
                 return (
                   <FormControlLabel
                     value={htmlDecode(eachAnswer)}

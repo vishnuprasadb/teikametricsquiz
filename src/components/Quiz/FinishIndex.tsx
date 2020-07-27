@@ -17,14 +17,27 @@ const useStyle = makeStyles(theme => ({
     margin: `${theme.spacing(3)}px auto`,
     padding: theme.spacing(5)
   },
+
   headingText: {
     verticalAlign: "middle",
-    color: "blue"
+    color: "darkblue"
   },
 
   socialMediaContainer: {
     maxHeight: "1rem"
-  }
+  },
+
+  correctAnswer: {
+    color: "green",
+  },
+
+  wrongAnswer: {
+    color: "red",
+  },
+
+  performance: {
+    color: "blue",
+  },
 }));
 
 const FinishIndex: React.FC = () => {
@@ -53,7 +66,7 @@ const FinishIndex: React.FC = () => {
   return (
     <div>
       <Paper className={classes.paper}>
-        <Grid spacing={2} container xs={12} item justify="center">
+        <Grid spacing={3} container xs={12} item justify="center">
           <Grid container xs={12} item justify="center">
             <Typography
               variant="h4"
@@ -68,24 +81,40 @@ const FinishIndex: React.FC = () => {
               convertToReadableTime(timer).toString()}
           </Grid>
           <Grid container xs={12} item justify="center">
-            {"Correct Answers: " +
-              correctAnswers.toString() +
-              ", " +
-              "Wrong Answers: " +
+            <span className={classes.correctAnswer}>
+              {"Correct Answers: " +
+              correctAnswers.toString()}
+            </span>
+            &nbsp; &nbsp;
+            <span className={classes.wrongAnswer}>
+              {"Wrong Answers: " +
               wrongAnswers.toString()}
+            </span>
           </Grid>
           <Grid container xs={12} item justify="center">
-            {"Overall Performance: " + percentageSuccess.toString() + "%"}
+            <span className={classes.performance}>
+              {"Overall Performance: " + 
+              percentageSuccess.toString() + "%"}
+            </span>
           </Grid>
           <Grid container xs={12} item justify="center">
-            <Button color="primary" onClick={() => history.push("/allresults")}>
+            &nbsp;
+          </Grid>
+          <Grid container xs={12} item justify="center">
+            <Button color="primary" variant="outlined" onClick={() => history.push("/allresults")}>
               View all results
             </Button>
           </Grid>
           <Grid container xs={12} item justify="center">
-            <Button color="primary" onClick={() => history.push("/")}>
+            <Button color="primary" variant="outlined" onClick={() => history.push("/")}>
               Take the test again
             </Button>
+          </Grid>
+          <Grid container xs={12} item justify="center">
+            &nbsp;
+          </Grid>
+          <Grid container xs={12} item justify="center">
+            &nbsp;
           </Grid>
           <Grid
             container

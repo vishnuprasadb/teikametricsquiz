@@ -125,58 +125,57 @@ const AssessmentIndex: React.FC = () => {
   };
   return (
     <div>
-      {loading ? (
-        <React.Fragment>
+      <React.Fragment>
           <Paper className={classes.paper}>
-            <Grid spacing={2} container xs={12} item justify="center">
-              <Grid container xs={12} item justify="center">
-                <CircularProgress />
+            {loading ? (
+              <Grid spacing={2} container xs={12} item justify="center">
+                <Grid container xs={12} item justify="center">
+                  <CircularProgress />
+                </Grid >
+                <Grid container xs={12} item justify="center">
+                  {"Loading Questions"}
+                </Grid>
               </Grid>
-              <Grid container xs={12} item justify="center">
-                {"Loading Questions"}
-              </Grid>
-            </Grid>
-          </Paper>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Paper className={classes.paper}>
-            <Grid
-              container
-              direction="row"
-              spacing={0}
-              justify="center"
-              xs={12}
-            >
-              <Progress
-                value={
-                  ((currentQuestionIndex + 1) / (totalQuestions + 1)) * 100
-                }
-              />
-              <Grid xs={12} item>
-                <Question
-                  details={questions[currentQuestionIndex]}
-                  handleSelection={handleSelection}
+                ) : (
+              <Grid
+                container
+                direction="row"
+                spacing={2}
+                justify="center"
+                xs={12}
+              >
+                <Progress
+                  value={
+                    ((currentQuestionIndex + 1) / (totalQuestions + 1)) * 100
+                  }
                 />
+                <Grid xs={12} item>
+                  <Question
+                    details={questions[currentQuestionIndex]}
+                    handleSelection={handleSelection}
+                  />
+                </Grid>
+                <Grid container justify="center" xs={12} item>
+                  <Button color="primary" variant="outlined" onClick={handleNextClick}>
+                    {currentQuestionIndex === totalQuestions
+                      ? "Finish"
+                      : "Next Question"}
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid container justify="center" xs={12} item>
-                <Button color="primary" onClick={handleNextClick}>
-                  {currentQuestionIndex === totalQuestions
-                    ? "Finish"
-                    : "Next Question"}
-                </Button>
-              </Grid>
+            )}
+            <Grid xs={12} item>
+              &nbsp;
             </Grid>
-          </Paper>
-        </React.Fragment>
-      )}
-      {skipAlert ? (
-        <Alert variant="outlined" severity="error">
-          Please answer this question to move forward!
-        </Alert>
-      ) : (
-        ""
-      )}
+            {skipAlert ? (
+              <Alert variant="outlined" severity="error">
+                Please answer this question to move forward!
+              </Alert>
+            ) : (
+              ""
+            )}
+        </Paper>
+      </React.Fragment>
     </div>
   );
 };
