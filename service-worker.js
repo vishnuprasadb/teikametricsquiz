@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/teikametricsquiz/precache-manifest.b73cb2f7a8d1f622f70b5c4fb78d318c.js"
+  "/teikametricsquiz/precache-manifest.98bdea061116fc5c897ab863ad7c89bf.js"
 );
 
 self.addEventListener('message', (event) => {
