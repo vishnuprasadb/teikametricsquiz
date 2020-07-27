@@ -8,16 +8,18 @@ const Share = (props: { value: string }) => {
     <React.Fragment>
       <a
         target="_blank"
+        rel="noopener noreferrer"
         href={`https://twitter.com/intent/tweet?text=${props.value}`}
       >
-        <img style={{ height: "2rem" }} src={twitterIcon} />
+        <img style={{ height: "2rem" }} src={twitterIcon} alt="twitter" />
       </a>
       &nbsp;
       <a
         target="_blank"
+        rel="noopener noreferrer"
         href={`https://api.whatsapp.com/send?text=${props.value}`}
       >
-        <img style={{ height: "2rem" }} src={whatsappIcon} />
+        <img style={{ height: "2rem" }} src={whatsappIcon} alt="whatsapp" />
       </a>
     </React.Fragment>
   );

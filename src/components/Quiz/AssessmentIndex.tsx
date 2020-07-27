@@ -82,11 +82,10 @@ const AssessmentIndex: React.FC = () => {
         setCurrentCorrectAnswer(questions[currentQuestionIndex].correct_answer);
       }
     }
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, questions]);
 
   useEffect(() => {
     if (finished) {
-      history.push("/finish");
       const realTotalQues = totalQuestions + 1;
       const finalResults = {
         totalQuestions: realTotalQues,
@@ -101,8 +100,9 @@ const AssessmentIndex: React.FC = () => {
       );
       resultsHistory.push(finalResults);
       localStorage.setItem("resultsHistory", JSON.stringify(resultsHistory));
+      history.push("/finish");
     }
-  }, [finished]);
+  }, [finished, correctAnswers, history, timer, totalQuestions]);
 
   const handleNextClick = () => {
     if (!ansGiven) {
@@ -126,54 +126,58 @@ const AssessmentIndex: React.FC = () => {
   return (
     <div>
       <React.Fragment>
-          <Paper className={classes.paper}>
-            {loading ? (
-              <Grid spacing={2} container xs={12} item justify="center">
-                <Grid container xs={12} item justify="center">
-                  <CircularProgress />
-                </Grid >
-                <Grid container xs={12} item justify="center">
-                  {"Loading Questions"}
-                </Grid>
+        <Paper className={classes.paper}>
+          {loading ? (
+            <Grid spacing={2} container xs={12} item justify="center">
+              <Grid container xs={12} item justify="center">
+                <CircularProgress />
               </Grid>
-                ) : (
-              <Grid
-                container
-                direction="row"
-                spacing={2}
-                justify="center"
-                xs={12}
-              >
-                <Progress
-                  value={
-                    ((currentQuestionIndex + 1) / (totalQuestions + 1)) * 100
-                  }
-                />
-                <Grid xs={12} item>
-                  <Question
-                    details={questions[currentQuestionIndex]}
-                    handleSelection={handleSelection}
-                  />
-                </Grid>
-                <Grid container justify="center" xs={12} item>
-                  <Button color="primary" variant="outlined" onClick={handleNextClick}>
-                    {currentQuestionIndex === totalQuestions
-                      ? "Finish"
-                      : "Next Question"}
-                  </Button>
-                </Grid>
+              <Grid container xs={12} item justify="center">
+                {"Loading Questions"}
               </Grid>
-            )}
-            <Grid xs={12} item>
-              &nbsp;
             </Grid>
-            {skipAlert ? (
-              <Alert variant="outlined" severity="error">
-                Please answer this question to move forward!
-              </Alert>
-            ) : (
-              ""
-            )}
+          ) : (
+            <Grid
+              container
+              direction="row"
+              spacing={2}
+              justify="center"
+              xs={12}
+            >
+              <Progress
+                value={
+                  ((currentQuestionIndex + 1) / (totalQuestions + 1)) * 100
+                }
+              />
+              <Grid xs={12} item>
+                <Question
+                  details={questions[currentQuestionIndex]}
+                  handleSelection={handleSelection}
+                />
+              </Grid>
+              <Grid container justify="center" xs={12} item>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  onClick={handleNextClick}
+                >
+                  {currentQuestionIndex === totalQuestions
+                    ? "Finish"
+                    : "Next Question"}
+                </Button>
+              </Grid>
+            </Grid>
+          )}
+          <Grid xs={12} item>
+            &nbsp;
+          </Grid>
+          {skipAlert ? (
+            <Alert variant="outlined" severity="error">
+              Please answer this question to move forward!
+            </Alert>
+          ) : (
+            ""
+          )}
         </Paper>
       </React.Fragment>
     </div>

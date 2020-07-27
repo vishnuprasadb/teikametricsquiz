@@ -28,16 +28,16 @@ const useStyle = makeStyles(theme => ({
   },
 
   correctAnswer: {
-    color: "green",
+    color: "green"
   },
 
   wrongAnswer: {
-    color: "red",
+    color: "red"
   },
 
   performance: {
-    color: "blue",
-  },
+    color: "blue"
+  }
 }));
 
 const FinishIndex: React.FC = () => {
@@ -45,7 +45,6 @@ const FinishIndex: React.FC = () => {
   const history = useHistory();
 
   const [timer, setTimer] = useState(0);
-  const [totalQuestions, setTotalQuestion] = useState(0);
   const [correctAnswers, setCorrentAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [percentageSuccess, setPercentageSuccess] = useState(0);
@@ -57,7 +56,6 @@ const FinishIndex: React.FC = () => {
       localStorage.getItem("currentResults") || "{}"
     );
     setTimer(currentResults.timer || 0);
-    setTotalQuestion(currentResults.totalQuestions);
     setCorrentAnswers(currentResults.correctAnswers);
     setWrongAnswers(currentResults.wrongAnswers);
     setPercentageSuccess(currentResults.percentageSuccess);
@@ -82,31 +80,36 @@ const FinishIndex: React.FC = () => {
           </Grid>
           <Grid container xs={12} item justify="center">
             <span className={classes.correctAnswer}>
-              {"Correct Answers: " +
-              correctAnswers.toString()}
+              {"Correct Answers: " + correctAnswers.toString()}
             </span>
             &nbsp; &nbsp;
             <span className={classes.wrongAnswer}>
-              {"Wrong Answers: " +
-              wrongAnswers.toString()}
+              {"Wrong Answers: " + wrongAnswers.toString()}
             </span>
           </Grid>
           <Grid container xs={12} item justify="center">
             <span className={classes.performance}>
-              {"Overall Performance: " + 
-              percentageSuccess.toString() + "%"}
+              {"Overall Performance: " + percentageSuccess.toString() + "%"}
             </span>
           </Grid>
           <Grid container xs={12} item justify="center">
             &nbsp;
           </Grid>
           <Grid container xs={12} item justify="center">
-            <Button color="primary" variant="outlined" onClick={() => history.push("/allresults")}>
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={() => history.push("/allresults")}
+            >
               View all results
             </Button>
           </Grid>
           <Grid container xs={12} item justify="center">
-            <Button color="primary" variant="outlined" onClick={() => history.push("/")}>
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={() => history.push("/")}
+            >
               Take the test again
             </Button>
           </Grid>

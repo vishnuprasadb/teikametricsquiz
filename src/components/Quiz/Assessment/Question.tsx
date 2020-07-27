@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Radio from "@material-ui/core/Radio";
@@ -9,13 +9,12 @@ import Grid from "@material-ui/core/Grid";
 import htmlDecode from "../../Utils/htmlDecode";
 
 const useStyle = makeStyles(theme => ({
-
   question: {
     backgroundColor: "lightgreen",
     color: "black",
     verticalAlign: "middle",
     padding: "1rem",
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
 
   option: {

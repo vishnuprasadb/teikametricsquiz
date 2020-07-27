@@ -1,113 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import Paper from "@material-ui/core/Paper";
 
 const useStyle = makeStyles(theme => ({
-  paper: {
-    maxWidth: 1000,
-    margin: `${theme.spacing(3)}px auto`,
-    padding: theme.spacing(5)
-  },
-
   header: {
     backgroundColor: "lightblue"
   },
 
   headingText: {
     verticalAlign: "middle"
-    // marginLeft: "15px",
-  },
-
-  instructions: {
-    backgroundColor: ""
-  },
-
-  instructionsText: {
-    verticalAlign: "middle"
-    // marginLeft: "15px",
-  },
-
-  divider: {
-    backgroundColor: "grey",
-    width: "100%"
   },
 
   gridContainer: {
-    margin: "0 auto"
-  },
-
-  select: {
-    width: "10rem"
+    margin: "0 auto",
+    backgroundColor: "lightblue"
   }
 }));
 
 const Dash = () => {
   const classes = useStyle();
-  const history = useHistory();
-
-  const [numQuestions, setNumQuestions] = useState(10);
-  const [difficultyLevel, setDifficultyLevel] = useState("");
-  const [category, setCatergory] = useState("");
-
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setDifficultyLevel(event.target.value as string);
-  };
-
-  const handleChangeCategory = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
-    setCatergory(event.target.value as string);
-  };
-
-  const startTest = () => {
-    let queryString: string = "?numQuestions=" + numQuestions.toString();
-    if (category) {
-      queryString += "&category=" + category;
-    }
-    if (difficultyLevel) {
-      queryString += "&difficulty=" + difficultyLevel;
-    }
-    history.push(`/test${queryString}`);
-  };
 
   return (
     <div>
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          justify="center"
-          alignContent="center"
-          className={classes.gridContainer}
-        >
-          <Grid
-            container
-            justify="center"
-            xs={12}
-            item
-            className={classes.header}
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        className={classes.gridContainer}
+      >
+        <Grid container justify="center" className={classes.header}>
+          <Typography
+            variant="h3"
+            display="inline"
+            className={classes.headingText}
           >
-            <Typography
-              variant="h3"
-              display="inline"
-              className={classes.headingText}
-            >
-              Teikametrics Quiz
-            </Typography>
-          </Grid>
+            Teikametrics Quiz
+          </Typography>
         </Grid>
+      </Grid>
     </div>
   );
 };

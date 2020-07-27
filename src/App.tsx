@@ -9,7 +9,7 @@ import DashIndex from "./components/Quiz/DashIndex";
 import AssessmentIndex from "./components/Quiz/AssessmentIndex";
 import FinishIndex from "./components/Quiz/FinishIndex";
 import AllResults from "./components/Quiz/AllResultsIndex";
-import QuizHeader from './components/ui/QuizHeader'
+import QuizHeader from "./components/ui/QuizHeader";
 
 const App: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <HashRouter>
           <QuizHeader />
-          
+
           <Switch>
             <Route path={`/test`} component={AssessmentIndex} />
             <Route path={`/finish`} component={FinishIndex} />
